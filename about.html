@@ -70,7 +70,6 @@ to rotate these subheadings. In more familiar units, it would be:
     $(document).on("scroll", function(e){
         var windowScrollTop = $(window).scrollTop();
         if(windowScrollTop > eBottom){
-			console.log("not allowed");
             $(document).scrollTop(eBottom);
         }
     });
