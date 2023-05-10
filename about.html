@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A Moving Image</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Great+Vibes|Oswald&display=swap');
+
+		code.language-js{
+			/* word-break: break-all; */
+			font-size: medium;
+		}
+		.background#one{
+			clip-path: polygon(0 6.5vw, 100% 0, 100% 100%, 0% 100%);
+		}
+		footer{
+			position: relative;
+			top:calc(-20% - 13vw)
+		}
+	</style>
+</head>
+<body>
+	<div class="hero">
+		<h1>About</h1>
+	</div>
+<div class="midline">
+		<div class="x" id="up" style="color: rgb(12, 107, 170);">
+			<a href="index.html">Home</a> | 
+			<a href="design.html">Design</a> |
+			<a href="javascript.html">Javascript</a> |
+			<a href="about.html">About this Webpage</a>
+		</div>
+	</div>
+
+	<div class="background" style="background-image: url('images/calc.jpg');" id="one">
+		<div class="textbox">
+			This website was made as my final in my Intro to Web Design class.<br>
+			As for the css on this site, I used several things that we had not learned yet.<br>
+			One of these is <code>calc()</code><br>
+			calc() can be used to calculate values inside of css, <em>without</em> needing javascript. An example of it being used is below:<br>
+			<code>p{height:calc(40% + 4.5vw);}</code><br>
+			vw is another unit, like px and %. It stands for viewport widths, which is 1% of the browser window size. There are also vh, which are viewport heights. I also used <code>clip-path</code> 
+			<br>Clip path is a css property that allows divs to be in a different shape than a square or a rectangle. An example is <code>clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);</code> Each value pair inside polygon() is a coordinate in the form x1 y1, x2 y2, … I needed to use this in conjunction with calc() so that I could create divs that take up the area under the rotated headings without causing problems when resized.
+		</div>
+	</div>
+	<div class="midline" id="two">
+		<div class="x" id="down"> Rotated Divs</div>
+	</div>
+	<div class="background" id="two" style="background-image: url('images/code.jpg'); clip-path: polygon(0 0, 100% 6.5vw, 100% 100%, 0% 100%); padding-bottom: 20%;">
+		<div class="textbox">
+			My idea for using rotated divs for my final project came from a previous project. In the <a href="design.html"> Design </a> portion of this website, under images, there is a image of my CSS zen garden mockup. I wanted to re attempt the tilted text and sections in actual CSS. I used:
+<code>
+transform: rotate(0.0101turn);
+</code>
+to rotate these subheadings. In more familiar units, it would be:
+<code>
+ transform: rotate(3.6deg); 
+</code>
+		</div>
+	</div>
+	<footer style="top:calc(-50% - 13vw)">
+		&copy; Venkadesh Eswaranandam
+	</footer>
+</body>
+<script src="jquery-3.6.4.min.js"></script>
+<script>
+	$(document).ready(function(){
+    var eBottom = $("footer").offset().top + 50 - $(window).height();
+    $(document).on("scroll", function(e){
+        var windowScrollTop = $(window).scrollTop();
+        if(windowScrollTop > eBottom){
+			console.log("not allowed");
+            $(document).scrollTop(eBottom);
+        }
+    });
+});
+</script>
+</html>

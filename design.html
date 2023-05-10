@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A Moving Image</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Great+Vibes|Oswald&display=swap');
+	</style>
+	
+</head>
+<body>
+	<div class="hero">
+		<h1>Design</h1>
+	</div>
+
+	<div class="midline" id="one">
+		<div class="x" id="up" style="color: rgb(12, 107, 170);">
+			<a href="index.html">Home</a> | 
+			<a href="design.html">Design</a> |
+			<a href="javascript.html">Javascript</a> |
+			<a href="about.html">About this Webpage</a>
+		</div>
+	</div>
+
+	<div class="background" id="one">
+		<div class="textbox">
+			Various design projects that i've worked on. Some of these are discused more in detail in <a href="javascript.html">Javascript</a> and <a href="about.html">About this webpage</a>.
+		</div>
+	</div>
+
+	<div class="midline" id="two">
+		<div class="x" id="down">
+			Images
+		</div>
+	</div>
+
+	<div class="background" style="background-image: url('images/blue-paint.jpg');"id="two">
+		<div class="textbox">
+			<img src="images/chimera.jpg">
+			<img src="images/website.jpg">
+			<img src="images/poetry.jpg">
+		</div>
+	</div>
+
+	<div class="midline" id="three">
+		<div class="x" id="up">
+			Webpages
+		</div>
+	</div>
+
+	<div class="background" style="background-image: url('images/green-paint.jpg');" id="three">
+		<div class="textbox">
+			<iframe src="sources\moodboard\index.html" height="900px" frameborder="0"></iframe>
+		</div>
+		
+	</div>
+	<footer>
+		&copy; Venkadesh Eswaranandam
+		</footer>
+</body>
+<script src="jquery-3.6.4.min.js"></script>
+<script>
+	$(document).ready(function(){
+    var eBottom = $("footer").offset().top + 50 - $(window).height();
+    $(document).on("scroll", function(e){
+        var windowScrollTop = $(window).scrollTop();
+        if(windowScrollTop > eBottom){
+			console.log("not allowed");
+            $(document).scrollTop(eBottom);
+        }
+    });
+});
+</script>
+</html>
