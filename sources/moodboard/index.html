@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Moodboard</title>
+	<link href="https://fonts.googleapis.com/css?family=Girassol&display=swap" rel="stylesheet">
+	<style type="text/css">
+		body{
+			background-image: linear-gradient(hsl(80,50%,60%),black);
+			background-repeat: no-repeat;
+			background-color: hsl(80,20%,50%);
+			height: 100%;
+			position: relative;
+		}
+		div.gallery{
+			width:80%;
+			overflow: auto;
+			margin:auto;
+		}
+		button.hold{
+			padding:10px;
+			background-color: hsl(80,20%,30%);
+			float: left;
+			box-sizing: border-box;
+			border: outset 5px hsl(80,20%,50%);
+			margin: 3%;
+			height: 25%;
+			width: 25%;
+	
+		}
+		div.img{
+			margin: 0;
+			padding-top:100%;
+			padding-left: 100%;
+			background-size: cover;
+			background-position: center;
+			/*background-attachment: fixed;*/
+			/*transform: scale(0.5);*/
+/*			height:100%;
+			width: 100%;*/
+			/*z-index: -1;*/
+		}
+		@media screen and (min-width: 2000px){
+			div.img{background-size:inherit;}
+			
+		}
+		@media screen and (max-width: 800px){
+			button.hold{width: 80%}
+		}
+		.viewer{
+			/* margin: auto;  */
+			width: 80%;
+			margin-left: 10%;
+			overflow: auto;
+		}
+		h1{
+			text-align: center;
+			font-family: 'Girassol', cursive;
+
+		}
+		p{
+			font-family: Arial, sans-serif;
+			color: grey;
+			margin: 3em;
+			margin-bottom: 0;
+			padding-bottom: 3em;
+		}
+	</style>
+</head>
+<body>
+<div>
+<h1>Venkadesh's Moodboard</h1>
+</div>
+<div class="gallery">
+	<!-- items added by javascript -->
+</div>
+<img class="viewer">
+</img>
+<div class="paragraph">
+	<p>I chose the photos in my moodboard to convey an overgrown feeling. The photos that I chose had a green hue and high contrast. This makes the image look like foliage. Most of my images have a light color value. The photos that I chose had high saturation. The images in my moodboard also have many objects in the picture, which make the images look cluttered. This contributes to the overgrown mood by reminding the viewer of a jungle, where there is lots of green foliage that looks dense and cluttered.I chose my heading font to have serifs because that makes the font look overgrown, since the serif looks like it was grown over the letters. The font also has a small kerning, making it look dense like the images. My website colors are primarily green, because the hue of my images is green. I was trying to create an overgrown mood for my website. </p>
+</div>
+<script type="text/javascript">
+	function img(img) {
+		var backgroundImage;
+		var hold;
+		// creates div that will contain image
+		backgroundImage = document.createElement("div");
+		//sets the background image to "1.jpg", "2.jpg" etc.
+		backgroundImage.setAttribute("style","background-image: url(\"images/" + img + ".jpg\");");
+		backgroundImage.setAttribute("id",img);
+		backgroundImage.setAttribute("class","img");
+		// makes the image holding div
+		hold = document.createElement("button");
+		hold.setAttribute("class","hold");
+		hold.setAttribute("onclick","Viewing(\"images/" + img + ".jpg\");");
+		// nests the div
+		hold.appendChild(backgroundImage);
+		document.getElementsByClassName('gallery')[0].appendChild(hold);
+	};
+	img("bricks");
+	img("houses");
+	img("leaf");
+	img("board");
+	img("kiwi");
+	img("lizard")
+	function Viewing(url) {
+		var i;
+		i = document.getElementsByClassName("viewer")[0];
+		i.setAttribute("src",url);	
+	};
+</script>
+</body>
+</html>
